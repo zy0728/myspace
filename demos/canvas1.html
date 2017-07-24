@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            canvas{
+                margin-top: 30px;
+            }
+        </style>
+        <script type="application/javascript">
+            function draw() {
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+
+                    ctx.fillStyle = "rgb(200,0,0)";
+                    ctx.fillRect (10, 10, 55, 50);
+
+                    ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+                    ctx.fillRect (30, 30, 55, 50);
+                }
+
+                //矩形（Rectangular）例子
+                var canvas = document.getElementById('canvas1');
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+
+                    ctx.fillRect(25,25,100,100);
+                    ctx.clearRect(45,45,60,60);
+                    ctx.strokeRect(50,50,50,50);
+                }
+
+                //线组成三角形
+                //beginPath()
+                //新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+
+                //closePath()
+                //闭合路径之后图形绘制命令又重新指向到上下文中。
+
+                //stroke()
+                //通过线条来绘制图形轮廓。
+
+                //fill()
+                //通过填充路径的内容区域生成实心的图形。
+
+                //moveTo(x, y)
+                //将笔触移动到指定的坐标x以及y上。
+
+                //lineTo(x, y)
+                //绘制一条从当前位置到指定x以及y位置的直线。
+
+                var canvas = document.getElementById('canvas2');
+                if (canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+
+                    // 填充三角形
+                    ctx.beginPath();
+                    ctx.moveTo(25,25);
+                    ctx.lineTo(105,25);
+                    ctx.lineTo(25,105);
+                    ctx.fill();
+
+                    // 描边三角形
+                    ctx.beginPath();
+                    ctx.moveTo(125,125);
+                    ctx.lineTo(125,45);
+                    ctx.lineTo(45,125);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+
+                //圆弧
+                //arc(x, y, radius, startAngle, endAngle, anticlockwise)
+                //画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。
+                //arcTo(x1, y1, x2, y2, radius)
+                //根据给定的控制点和半径画一段圆弧，再以直线连接两个控制点。
+                var canvas = document.getElementById('canvas3');
+                if (canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+
+                    for(var i=0;i<4;i++){
+                    for(var j=0;j<3;j++){
+                        ctx.beginPath();
+                        var x              = 25+j*50;               // x 坐标值
+                        var y              = 25+i*50;               // y 坐标值
+                        var radius         = 20;                    // 圆弧半径
+                        var startAngle     = 0;                     // 开始点
+                        var endAngle       = Math.PI+(Math.PI*j)/2; // 结束点
+                        var anticlockwise  = i%2==0 ? false : true; // 顺时针或逆时针
+
+                        ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+                        if (i>1){
+                        ctx.fill();
+                        } else {
+                        ctx.stroke();
+                        }
+                    }
+                    }
+                }
+
+
+                //三次贝塞尔曲线
+                //bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+                //绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+                var canvas = document.getElementById('canvas4');
+                if (canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+
+                    //三次贝塞尔曲线
+                    ctx.beginPath();
+                    ctx.moveTo(75,40);
+                    ctx.bezierCurveTo(75,37,70,25,50,25);
+                    ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+                    ctx.bezierCurveTo(20,80,40,102,75,120);
+                    ctx.bezierCurveTo(110,102,130,80,130,62.5);
+                    ctx.bezierCurveTo(130,62.5,130,25,100,25);
+                    ctx.bezierCurveTo(85,25,75,37,75,40);
+                    ctx.fill();
+                }
+            }
+        </script>
+    </head>
+    <body onload="draw();">
+        <canvas id="canvas" width="150" height="150"></canvas><br>
+        <canvas id="canvas1" width="150" height="150"></canvas><br>
+        <canvas id="canvas2" width="150" height="150"></canvas><br>
+        <canvas id="canvas3" width="150" height="150"></canvas><br>
+        <canvas id="canvas4" width="150" height="150"></canvas><br>
+    </body>
+</html>
