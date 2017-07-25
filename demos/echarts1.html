@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        html,body,.echart-box {
+            width: 100%;
+            height: 100%;
+        }
+        </style>
+    </head>
+    <body>
+         <div class="echart-box" id="echart-population"></div>
+         <!-- <script src="./libs/jquery.js" charset="utf-8"></script>  -->
+        <script src="./libs/echarts.js" charset="utf-8"></script> 
+        <script src="./libs/echarts-gl.js" charset="utf-8"></script> 
+        <script>
+            var personChat = echarts.init(document.getElementById('echart-population'));
+            var option = {
+                backgroundColor: '#000',
+                globe: {
+                    baseTexture: "img/data-1491837049070-rJZtl7Y6x.jpg",
+                    heightTexture: "img/data-1491837049070-rJZtl7Y6x.jpg",
+                    displacementScale: 0.04,
+                    shading: 'realistic',
+                    environment: 'img/data-1491837999815-H1_44Qtal.jpg',
+                    realisticMaterial: {
+                        roughness: 0.9
+                    },
+                    postEffect: {
+                        enable: true
+                    },
+                    light: {
+                        main: {
+                            intensity: 5,
+                            shadow: true
+                        }
+                    }
+                }
+            };
+            personChat.setOption(option);
+        </script>
+    </body>
+</html>
