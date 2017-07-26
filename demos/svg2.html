@@ -8,18 +8,32 @@
     <body>
         <svg  width="100%" height="2000">
             <defs>
+                <!-- 滤镜  -->
                 <filter id="Gaussian_Blur">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
                 </filter>
+                <!-- 线性渐变 -->
                 <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1"/>
                     <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
                 </linearGradient>
+                <!-- 放射性渐变 -->
                 <radialGradient id="grey_blue" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                     <stop offset="0%" style="stop-color:rgb(200,200,200);stop-opacity:0"/>
                     <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1"/>
                 </radialGradient>
             </defs>
+            <!-- 路径 -->
+            <!-- M = moveto
+            L = lineto
+            H = horizontal lineto
+            V = vertical lineto
+            C = curveto
+            S = smooth curveto
+            Q = quadratic Belzier curve
+            T = smooth quadratic Belzier curveto
+            A = elliptical Arc
+            Z = closepath -->
             <path d="M153 334
                 C153 334 151 334 151 334
                 C151 339 153 344 156 344
