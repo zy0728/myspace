@@ -10,9 +10,16 @@
             <defs>
                 <!-- 滤镜  -->
                 <filter id="Gaussian_Blur">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                    <!-- in="SourceGraphic" 这个部分定义了由整个图像创建效果
+                    stdDeviation 可定义模糊的程度 -->
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3"/> 
                 </filter>
                 <!-- 线性渐变 -->
+                <!-- 线性渐变可被定义为水平、垂直或角形的渐变：
+                当 y1 和 y2 相等，而 x1 和 x2 不同时，可创建水平渐变
+                当 x1 和 x2 相等，而 y1 和 y2 不同时，可创建垂直渐变
+                当 x1 和 x2 不同，且 y1 和 y2 不同时，可创建角形渐变
+                渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个 <stop> 标签来规定。offset 属性用来定义渐变的开始和结束位置 -->
                 <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1"/>
                     <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
